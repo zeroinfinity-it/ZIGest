@@ -10,11 +10,13 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    @invoice_details = @invoice.invoice_details.build
   end
 
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+    @invoice_details = @invoice.invoice_details.new
   end
 
   # GET /invoices/1/edit
@@ -28,7 +30,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
+        format.html { redirect_to @invoice, notice: 'Fattura creata con successo.' }
         format.json { render action: 'show', status: :created, location: @invoice }
       else
         format.html { render action: 'new' }
@@ -69,6 +71,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:titolo, :descrizione, :image_url, :price)
+      params.require(:invoice).permit(:titolo, :descrizione, :VAT, :TotaleNoVat, :DataEmissione )
     end
 end

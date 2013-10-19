@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  descrizione: 
+  VAT: 
+  ImportoNoVatSingolo: 
+  Qta: 
+  invoice_id: 1
+
+two:
+  descrizione: 
+  VAT: 
+  ImportoNoVatSingolo: 
+  Qta: 
+  invoice_id: 1

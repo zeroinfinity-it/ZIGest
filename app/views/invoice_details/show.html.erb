@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descrizione:</strong>
+  <%= @invoice_detail.descrizione %>
+</p>
+
+<p>
+  <strong>Vat:</strong>
+  <%= @invoice_detail.VAT %>
+</p>
+
+<p>
+  <strong>Importonovatsingolo:</strong>
+  <%= @invoice_detail.ImportoNoVatSingolo %>
+</p>
+
+<p>
+  <strong>Qta:</strong>
+  <%= @invoice_detail.Qta %>
+</p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @invoice_detail.invoice_id %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_detail_path(@invoice_detail) %> |
+<%= link_to 'Back', invoice_details_path %>

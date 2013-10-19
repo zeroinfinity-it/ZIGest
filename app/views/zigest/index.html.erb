@@ -1,0 +1,15 @@
+<% if notice %>
+	<p id="notice"><%= notice %></p> 
+<% end %>
+
+<h1>Sistema ZiGest</h1>
+    <% @invoices.each do |invoice| %>
+	<div class="entry">
+	
+	<h3><%= invoice.titolo %></h3> 
+	<%=sanitize invoice.descrizione %> 
+		<div class="price_line">
+			<span class="price">hhh</span>
+		</div>
+	</div>
+	<% end %>

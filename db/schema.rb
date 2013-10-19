@@ -11,18 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014100155) do
+ActiveRecord::Schema.define(version: 20131015152933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "invoice_details", force: true do |t|
+    t.text     "descrizione"
+    t.decimal  "VAT",                 precision: 8,  scale: 2
+    t.decimal  "ImportoNoVatSingolo", precision: 16, scale: 5
+    t.integer  "Qta"
+    t.integer  "invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "invoices", force: true do |t|
     t.string   "titolo"
     t.text     "descrizione"
-    t.string   "image_url"
-    t.decimal  "price",       precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "VAT",           precision: 6,  scale: 2
+    t.decimal  "TotaleNoVat",   precision: 16, scale: 5
+    t.date     "DataEmissione"
   end
 
 end

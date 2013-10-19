@@ -1,4 +1,7 @@
 ZIGest::Application.routes.draw do
+  resources :invoice_details
+
+  get "zigest/index"
   resources :invoices
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -6,6 +9,8 @@ ZIGest::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+
+  root 'zigest#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

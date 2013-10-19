@@ -3,6 +3,12 @@ require 'test_helper'
 class InvoicesControllerTest < ActionController::TestCase
   setup do
     @invoice = invoices(:one)
+    @update = {
+      :titolo  => 'lorem ipsum titolo',
+      :descrizione => 'descrizione',
+      :image_url => 'lorem.jpg',
+      :price => 19.95
+    }
   end
 
   test "should get index" do
