@@ -1,4 +1,4 @@
-<%= form_for(@invoice_detail) do |f| %>
+<%= form_for @invoice_detail, :url => {:action => "create", :invoice_id => @invoice.id} do |f| %>
   
   <%= render 'shared/error_messages', object: f.object %>
 

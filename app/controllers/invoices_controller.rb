@@ -10,13 +10,13 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
-    @invoice_details = @invoice.invoice_details.build
+      set_invoice
+      @invoice_details = @invoice.invoice_details.all
   end
 
   # GET /invoices/new
   def new
     @invoice = Invoice.new
-    @invoice_details = @invoice.invoice_details.new
   end
 
   # GET /invoices/1/edit
@@ -64,6 +64,9 @@ class InvoicesController < ApplicationController
   end
 
   private
+
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_invoice
       @invoice = Invoice.find(params[:id])

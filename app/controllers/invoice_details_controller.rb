@@ -14,7 +14,8 @@ class InvoiceDetailsController < ApplicationController
 
   # GET /invoice_details/new
   def new
-    @invoice_detail = InvoiceDetail.new
+    @invoice = Invoice.find(params[:invoice_id])
+    @invoice_detail = @invoice.invoice_details.build
   end
 
   # GET /invoice_details/1/edit
@@ -25,7 +26,10 @@ class InvoiceDetailsController < ApplicationController
   # POST /invoice_details.json
   def create
 
-   # @invoice_detail =  @invoice.invoice_details.build(invoice_detail_params)
+    @invoice = Invoice.find(params[:invoice_id])
+    
+    @invoice_detail =  @invoice.invoice_details.build(invoice_detail_params)
+
 
     respond_to do |format|
       if @invoice_detail.save

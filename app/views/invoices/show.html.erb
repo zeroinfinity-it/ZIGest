@@ -2,19 +2,41 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
+<div class="row">
+  <div class="span4">
+    <dl class="dl-horizontal">
+      <dt><strong><%= model_class.human_attribute_name(:titolo) %>:</strong></dt>
+      <dd><%= @invoice.titolo %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:descrizione) %>:</strong></dt>
+      <dd><%= @invoice.descrizione %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:VAT) %>:</strong></dt>
+      <dd><%= @invoice.VAT %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:TotaleNoVat) %>:</strong></dt>
+      <dd><%= @invoice.TotaleNoVat %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:DataEmissione) %>:</strong></dt>
+      <dd><%= @invoice.DataEmissione %></dd>
+    </dl>
+  </div>
+  <div class="span8">
+    <h3>Dettaglio fattura</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= "Codice Fattura" %> </th>
+          <th><%= "Descrizione voce" %></th>
+          <th><%= "IVA" %> </th>
+          <th><%= "Totale senza IVA" %></th>
+          <th><%= "Quantità" %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+      <%= render @invoice_details%>
+      </tbody>
+    </table>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:titolo) %>:</strong></dt>
-  <dd><%= @invoice.titolo %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:descrizione) %>:</strong></dt>
-  <dd><%= @invoice.descrizione %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:VAT) %>:</strong></dt>
-  <dd><%= @invoice.VAT %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:TotaleNoVat) %>:</strong></dt>
-  <dd><%= @invoice.TotaleNoVat %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:DataEmissione) %>:</strong></dt>
-  <dd><%= @invoice.DataEmissione %></dd>
-</dl>
+  </div>
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

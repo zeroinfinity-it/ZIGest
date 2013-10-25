@@ -17,11 +17,11 @@
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= link_to invoice.id, invoice_path(invoice) %></td>
+        <td><%= invoice.id %></td>
         <td><%= link_to invoice.titolo, invoice_path(invoice) %></td>
         <td><%= invoice.descrizione %></td>
-        <td><%= invoice.VAT %></td>
-        <td><%= invoice.TotaleNoVat %></td>
+        <td><%= number_to_percentage(invoice.VAT,precision: 0) %></td>
+        <td><%= number_to_euro(invoice.TotaleNoVat) %></td>
         <td><%= invoice.DataEmissione %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -31,6 +31,8 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
+          <%= link_to t('.add', :default => t("helpers.links.add")),
+                      new_invoice_detail_path(:invoice_id => invoice.id), :class => 'btn btn-mini btn-primary' %>
         </td>
       </tr>
     <% end %>
