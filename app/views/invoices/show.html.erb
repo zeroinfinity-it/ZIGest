@@ -18,7 +18,7 @@
     </dl>
   </div>
   <div class="span8">
-    <h3>Dettaglio fattura</h3>
+    <h4>Dettaglio fattura</h4>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -31,7 +31,7 @@
         </tr>
       </thead>
       <tbody>
-      <%= render @invoice_details%>
+      <%= render @invoice_details, :invoice_id => @invoice.id%>
       </tbody>
     </table>
 
@@ -44,7 +44,7 @@
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_invoice_path(@invoice), :class => 'btn' %>
   <%= link_to "+Voce",
-               new_invoice_detail_path, :class => 'btn btn-primary'%>
+               new_invoice_invoice_detail_path(@invoice.id), :class => 'btn btn-primary'%>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               invoice_path(@invoice),
               :method => 'delete',

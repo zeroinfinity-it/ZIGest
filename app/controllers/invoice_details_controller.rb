@@ -15,11 +15,12 @@ class InvoiceDetailsController < ApplicationController
   # GET /invoice_details/new
   def new
     @invoice = Invoice.find(params[:invoice_id])
-    @invoice_detail = @invoice.invoice_details.build
+    @invoice_detail = @invoice.invoice_details.new
   end
 
   # GET /invoice_details/1/edit
   def edit
+    @invoice = Invoice.find(params[:invoice_id])
   end
 
   # POST /invoice_details
@@ -33,8 +34,8 @@ class InvoiceDetailsController < ApplicationController
 
     respond_to do |format|
       if @invoice_detail.save
-        format.html { redirect_to @invoice_detail, notice: 'Invoice detail was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @invoice_detail }
+        format.html { redirect_to invoice_path(@invoice), notice: 'Invoice detail was successfully created.' }
+        format.json { render action: 'show', status: :created, location: invoice_path(@invoice) }
       else
         format.html { render action: 'new' }
         format.json { render json: @invoice_detail.errors, status: :unprocessable_entity }
@@ -45,9 +46,11 @@ class InvoiceDetailsController < ApplicationController
   # PATCH/PUT /invoice_details/1
   # PATCH/PUT /invoice_details/1.json
   def update
+     @invoice = Invoice.find(params[:invoice_id])
+
     respond_to do |format|
       if @invoice_detail.update(invoice_detail_params)
-        format.html { redirect_to @invoice_detail, notice: 'Invoice detail was successfully updated.' }
+        format.html { redirect_to invoice_path(@invoice), notice: 'Invoice detail was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -59,9 +62,10 @@ class InvoiceDetailsController < ApplicationController
   # DELETE /invoice_details/1
   # DELETE /invoice_details/1.json
   def destroy
+    @invoice = Invoice.find(params[:invoice_id])
     @invoice_detail.destroy
     respond_to do |format|
-      format.html { redirect_to invoice_details_url }
+      format.html { redirect_to invoice_path(@invoice) }
       format.json { head :no_content }
     end
   end

@@ -1,0 +1,33 @@
+                     Prefix Verb   URI Pattern                                              Controller#Action
+           new_user_session GET    /users/sign_in(.:format)                                 devise/sessions#new
+               user_session POST   /users/sign_in(.:format)                                 devise/sessions#create
+       destroy_user_session DELETE /users/sign_out(.:format)                                devise/sessions#destroy
+              user_password POST   /users/password(.:format)                                devise/passwords#create
+          new_user_password GET    /users/password/new(.:format)                            devise/passwords#new
+         edit_user_password GET    /users/password/edit(.:format)                           devise/passwords#edit
+                            PATCH  /users/password(.:format)                                devise/passwords#update
+                            PUT    /users/password(.:format)                                devise/passwords#update
+   cancel_user_registration GET    /users/cancel(.:format)                                  devise/registrations#cancel
+          user_registration POST   /users(.:format)                                         devise/registrations#create
+      new_user_registration GET    /users/sign_up(.:format)                                 devise/registrations#new
+     edit_user_registration GET    /users/edit(.:format)                                    devise/registrations#edit
+                            PATCH  /users(.:format)                                         devise/registrations#update
+                            PUT    /users(.:format)                                         devise/registrations#update
+                            DELETE /users(.:format)                                         devise/registrations#destroy
+    invoice_invoice_details GET    /invoices/:invoice_id/invoice_details(.:format)          invoice_details#index
+                            POST   /invoices/:invoice_id/invoice_details(.:format)          invoice_details#create
+ new_invoice_invoice_detail GET    /invoices/:invoice_id/invoice_details/new(.:format)      invoice_details#new
+edit_invoice_invoice_detail GET    /invoices/:invoice_id/invoice_details/:id/edit(.:format) invoice_details#edit
+     invoice_invoice_detail GET    /invoices/:invoice_id/invoice_details/:id(.:format)      invoice_details#show
+                            PATCH  /invoices/:invoice_id/invoice_details/:id(.:format)      invoice_details#update
+                            PUT    /invoices/:invoice_id/invoice_details/:id(.:format)      invoice_details#update
+                            DELETE /invoices/:invoice_id/invoice_details/:id(.:format)      invoice_details#destroy
+                   invoices GET    /invoices(.:format)                                      invoices#index
+                            POST   /invoices(.:format)                                      invoices#create
+                new_invoice GET    /invoices/new(.:format)                                  invoices#new
+               edit_invoice GET    /invoices/:id/edit(.:format)                             invoices#edit
+                    invoice GET    /invoices/:id(.:format)                                  invoices#show
+                            PATCH  /invoices/:id(.:format)                                  invoices#update
+                            PUT    /invoices/:id(.:format)                                  invoices#update
+                            DELETE /invoices/:id(.:format)                                  invoices#destroy
+                       root GET    /                                                        zigest#index

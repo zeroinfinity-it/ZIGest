@@ -1,8 +1,9 @@
 ZIGest::Application.routes.draw do
-  resources :invoice_details
-
-  get "zigest/index"
-  resources :invoices
+  devise_for :users
+  
+  resources :invoices do
+    resources :invoice_details
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
