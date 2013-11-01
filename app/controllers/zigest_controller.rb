@@ -1,5 +1,7 @@
 class ZigestController < ApplicationController
-  def index
-  	@invoices = Invoice.all
-  end
+	before_filter :authenticate_user!
+	
+	  def index
+	  	@invoices = Invoice.all
+	  end
 end
