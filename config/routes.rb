@@ -1,4 +1,6 @@
 ZIGest::Application.routes.draw do
+  resources :variables
+
   devise_for :users
   
   resources :invoices do

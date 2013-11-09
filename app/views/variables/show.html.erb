@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Modname:</strong>
+  <%= @variable.modname %>
+</p>
+
+<p>
+  <strong>Var:</strong>
+  <%= @variable.var %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @variable.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_variable_path(@variable) %> |
+<%= link_to 'Back', variables_path %>

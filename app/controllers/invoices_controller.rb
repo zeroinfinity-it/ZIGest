@@ -10,13 +10,14 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
-      set_invoice
       @invoice_details = @invoice.invoice_details.all
   end
 
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+    @invoice.user_id=current_user
+    @invoice.DataEmissione = Date.current.to_s
   end
 
   # GET /invoices/1/edit
@@ -27,6 +28,7 @@ class InvoicesController < ApplicationController
   # POST /invoices.json
   def create
     @invoice = Invoice.new(invoice_params)
+    @invoice.user_id=current_user
 
     respond_to do |format|
       if @invoice.save

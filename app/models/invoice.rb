@@ -1,7 +1,6 @@
 class Invoice < ActiveRecord::Base
 		has_many :invoice_details
-	validates :titolo, :descrizione, :VAT, :TotaleNoVat, :DataEmissione, :presence => true
+		belongs_to :users
+	validates :titolo, :descrizione, :VAT, :TotaleNoVat, :DataEmissione, :user_id, :presence => true
 	
-
-
 end
